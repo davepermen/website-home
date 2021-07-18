@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<main>
+    @Body
+</main>
+
+<Navigation class="left" Entries='new[] { "morning", "day", "evening", "night", "tomorrow" }' />
+<Navigation class="right" Entries='new[] { "finances", "fitness", "todo", "foldingathome" }' />
+<Navigation class="top" Entries='new[] { "charger", "car", "lights", "server" }' />
+<Navigation class="bottom" Entries='new[] { "home", "code", "music", "me" }' />
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Subscribe to the event
+        NavigationManager.LocationChanged += LocationChanged;
+        LocationChanged(null, null);
+        base.OnInitialized();
+    }
+
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        var value = JSRuntime.InvokeAsync<bool>("BackgroundSwitcher.Switch");
+    }
+}

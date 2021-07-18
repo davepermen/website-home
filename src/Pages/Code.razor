@@ -1,0 +1,17 @@
+﻿@page "/code"
+
+<tile-group>
+    <h1>Counter</h1>
+    <tile size="big" style="font-size: 10rem; user-select: none">@currentCount</tile>
+    <tile size="normal" @onclick="(() => currentCount++)" style="font-size: 4rem; user-select: none">+1</tile>
+    <tile size="normal" @onclick="(() => currentCount--)" style="font-size: 4rem; user-select: none">-1</tile>
+</tile-group>
+
+@code {
+    private static int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

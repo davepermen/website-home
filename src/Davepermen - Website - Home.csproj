@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\icons\safari-pinned-tab.svg" />
+    <None Include="wwwroot\icons\site.webmanifest" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Conesoft.Hosting" Version="0.5.12" />
   </ItemGroup>
   

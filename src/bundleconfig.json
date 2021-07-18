@@ -1,8 +1,8 @@
 [
   {
-    "outputFileName": "wwwroot/style.min.css",
+    "outputFileName": "wwwroot/all.css",
     "inputFiles": [
-      "wwwroot/style.css"
+      "wwwroot/**/*.css"
     ]
   }
 ]

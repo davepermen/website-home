@@ -1,0 +1,39 @@
+html {
+    font-family: sans-serif;
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    touch-action: manipulation;
+}
+
+* {
+    margin: initial;
+    padding: initial;
+    box-sizing: inherit;
+    
+    display: inherit;
+}
+
+head, script, style {
+    display: none;
+}
+
+table {
+    display: table;
+}
+
+/*a {
+    color: cornflowerblue;
+}
+a:visited {
+    color: mediumslateblue;
+}*/
+
+@media (prefers-color-scheme: light) {
+    :not(img), :not(video) {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+}

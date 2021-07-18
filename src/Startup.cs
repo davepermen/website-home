@@ -11,17 +11,20 @@ namespace Home
             services.AddHostingDefaults();
 
             services.AddRazorPages();
+            services.AddServerSideBlazor();
         }
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRouting();
-
             app.UseHostingDefaults(connectToHost: true, useDefaultFiles: true, useStaticFiles: true);
+
+            app.UseStaticFiles();
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/_Host");
             });
         }
     }

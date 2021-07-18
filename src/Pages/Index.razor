@@ -1,0 +1,31 @@
+﻿@page "/"
+
+<tile-group>
+    <h1>home</h1>
+    <tile size="normal" title="welcome home"></tile>
+    <tile size="big" style="background: right / cover url('/me.webp')"></tile>
+    <tile size="normal" title="current time">
+        <b>@now.ToLongTimeString()</b>
+    </tile>
+</tile-group>
+
+@code
+{
+    DateTime now = DateTime.Now;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var _ = LoopAsync();
+        await base.OnInitializedAsync();
+    }
+
+    async Task LoopAsync()
+    {
+        while (true)
+        {
+            await Task.Delay(1000);
+            now = DateTime.Now;
+            StateHasChanged();
+        }
+    }
+}
